@@ -192,7 +192,7 @@ uint16_t max_display_update_time = 0;
     #if ENABLED(PRINTCOUNTER)
       void lcd_info_stats_menu();
     #endif
-    void lcd_info_thermistors_menu();
+    //void lcd_info_thermistors_menu();
     void lcd_info_board_menu();
     void lcd_info_menu();
   #endif // LCD_INFO_MENU
@@ -1706,6 +1706,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     void lcd_preheat_m2_bedonly() { _lcd_preheat(0, 0, lcd_preheat_bed_temp[1], lcd_preheat_fan_speed[1]); }
   #endif
 
+  /*
   #if HAS_TEMP_HOTEND || HAS_HEATED_BED
 
     void lcd_preheat_m1_menu() {
@@ -1813,7 +1814,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     }
 
   #endif // HAS_TEMP_HOTEND || HAS_HEATED_BED
-
+  */
   void lcd_cooldown() {
     #if FAN_COUNT > 0
       for (uint8_t i = 0; i < FAN_COUNT; i++) fanSpeeds[i] = 0;
@@ -2794,6 +2795,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
       //
       // Preheat for Material 1 and 2
       //
+      /*
       #if TEMP_SENSOR_1 != 0 || TEMP_SENSOR_2 != 0 || TEMP_SENSOR_3 != 0 || TEMP_SENSOR_4 != 0 || HAS_HEATED_BED
         MENU_ITEM(submenu, MSG_PREHEAT_1, lcd_preheat_m1_menu);
         MENU_ITEM(submenu, MSG_PREHEAT_2, lcd_preheat_m2_menu);
@@ -2801,7 +2803,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
         MENU_ITEM(function, MSG_PREHEAT_1, lcd_preheat_m1_e0_only);
         MENU_ITEM(function, MSG_PREHEAT_2, lcd_preheat_m2_e0_only);
       #endif
-
+      */
     #endif // HAS_TEMP_HOTEND
 
     //
@@ -3367,11 +3369,13 @@ void lcd_quick_feedback(const bool clear_buttons) {
     MENU_ITEM(submenu, MSG_TEMPERATURE, lcd_control_temperature_menu);
     MENU_ITEM(submenu, MSG_MOTION, lcd_control_motion_menu);
 
+    /*
     #if DISABLED(NO_VOLUMETRICS) || ENABLED(ADVANCED_PAUSE_FEATURE)
       MENU_ITEM(submenu, MSG_FILAMENT, lcd_control_filament_menu);
     #elif ENABLED(LIN_ADVANCE)
       MENU_ITEM_EDIT(float52, MSG_ADVANCE_K, &planner.extruder_advance_K, 0, 999);
     #endif
+    */
 
     #if HAS_LCD_CONTRAST
       MENU_ITEM_EDIT_CALLBACK(int3, MSG_CONTRAST, &lcd_contrast, LCD_CONTRAST_MIN, LCD_CONTRAST_MAX, lcd_callback_set_contrast, true);
@@ -3551,6 +3555,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     //
     // Autotemp, Min, Max, Fact
     //
+    /*
     #if ENABLED(AUTOTEMP) && HAS_TEMP_HOTEND
       MENU_ITEM_EDIT(bool, MSG_AUTOTEMP, &planner.autotemp_enabled);
       MENU_ITEM_EDIT(float3, MSG_MIN, &planner.autotemp_min, 0, float(HEATER_0_MAXTEMP) - 15);
@@ -3621,6 +3626,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
       MENU_ITEM(submenu, MSG_PREHEAT_2_SETTINGS, lcd_control_temperature_preheat_material2_settings_menu);
     #endif
 
+    */
     END_MENU();
   }
 
@@ -4126,6 +4132,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
      * About Printer > Thermistors
      *
      */
+    /*
     void lcd_info_thermistors_menu() {
       if (use_click()) { return lcd_goto_previous_menu(); }
       START_SCREEN();
@@ -4181,6 +4188,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
       #endif
       END_SCREEN();
     }
+    */
 
     /**
      *
@@ -4241,7 +4249,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
       MENU_BACK(MSG_MAIN);
       MENU_ITEM(submenu, MSG_INFO_PRINTER_MENU, lcd_info_printer_menu);        // Printer Info >
       MENU_ITEM(submenu, MSG_INFO_BOARD_MENU, lcd_info_board_menu);            // Board Info >
-      MENU_ITEM(submenu, MSG_INFO_THERMISTOR_MENU, lcd_info_thermistors_menu); // Thermistors >
+      //MENU_ITEM(submenu, MSG_INFO_THERMISTOR_MENU, lcd_info_thermistors_menu); // Thermistors >
       #if ENABLED(PRINTCOUNTER)
         MENU_ITEM(submenu, MSG_INFO_STATS_MENU, lcd_info_stats_menu);          // Printer Statistics >
       #endif
