@@ -3373,7 +3373,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
   void lcd_control_menu() {
     START_MENU();
     MENU_BACK(MSG_MAIN);
-    MENU_ITEM(submenu, MSG_TEMPERATURE, lcd_control_temperature_menu);
+    //MENU_ITEM(submenu, MSG_TEMPERATURE, lcd_control_temperature_menu);
     MENU_ITEM(submenu, MSG_MOTION, lcd_control_motion_menu);
 
     /*
@@ -3499,7 +3499,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
    *
    * "Control" > "Temperature" submenu
    *
-   */
+   *//*
   void lcd_control_temperature_menu() {
     START_MENU();
 
@@ -3528,7 +3528,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
         #endif // HOTENDS > 3
       #endif // HOTENDS > 2
     #endif // HOTENDS > 1
-    */
+    
     //
     // Bed:
     //
@@ -3635,9 +3635,10 @@ void lcd_quick_feedback(const bool clear_buttons) {
       MENU_ITEM(submenu, MSG_PREHEAT_2_SETTINGS, lcd_control_temperature_preheat_material2_settings_menu);
     #endif
 
-    */
+    
     END_MENU();
   }
+  */
 
   #if DISABLED(SLIM_LCD_MENUS)
 
