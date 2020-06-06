@@ -81,7 +81,7 @@
 #define MSG_MOVE_X                          _UxGT("Mover X")
 #define MSG_MOVE_Y                          _UxGT("Mover Y")
 #define MSG_MOVE_Z                          _UxGT("Mover Z")
-#define MSG_MOVE_E                          _UxGT("Extrusor")
+#define MSG_MOVE_E                          _UxGT("Mover A")
 #define MSG_MOVE_01MM                       _UxGT("Mover 0.1mm")
 #define MSG_MOVE_1MM                        _UxGT("Mover 1mm")
 #define MSG_MOVE_10MM                       _UxGT("Mover 10mm")
@@ -118,7 +118,7 @@
   #define MSG_VB_JERK                       _UxGT("Vy-jerk")
   #define MSG_VC_JERK                       _UxGT("Vz-jerk")
 #endif
-#define MSG_VE_JERK                         _UxGT("Ve-jerk")
+#define MSG_VE_JERK                         _UxGT("Va-jerk")
 #define MSG_VMAX                            _UxGT("Vmax")
 #define MSG_VMIN                            _UxGT("Vmin")
 #define MSG_VTRAV_MIN                       _UxGT("Vel. viaje min")
@@ -140,7 +140,7 @@
   #define MSG_BSTEPS                        _UxGT("Y pasos/mm")
   #define MSG_CSTEPS                        _UxGT("Z pasos/mm")
 #endif
-#define MSG_ESTEPS                          _UxGT("E pasos/mm")
+#define MSG_ESTEPS                          _UxGT("A pasos/mm")
 #define MSG_E1STEPS                         _UxGT("E1 pasos/mm")
 #define MSG_E2STEPS                         _UxGT("E2 pasos/mm")
 #define MSG_E3STEPS                         _UxGT("E3 pasos/mm")
@@ -219,7 +219,7 @@
 #define MSG_INFO_STATS_MENU                 _UxGT("Estadisticas Imp.")
 #define MSG_INFO_BOARD_MENU                 _UxGT("Inf. Controlador")
 #define MSG_INFO_THERMISTOR_MENU            _UxGT("Termistores")
-#define MSG_INFO_EXTRUDERS                  _UxGT("Extrusores")
+#define MSG_INFO_EXTRUDERS                  _UxGT("Eje extra")//Extrusores
 #define MSG_INFO_BAUDRATE                   _UxGT("Baudios")
 #define MSG_INFO_PROTOCOL                   _UxGT("Protocolo")
 #define MSG_CASE_LIGHT                      _UxGT("Luz cabina")
