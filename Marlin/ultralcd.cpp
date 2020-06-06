@@ -2711,6 +2711,13 @@ void lcd_quick_feedback(const bool clear_buttons) {
       MENU_ITEM(gcode, MSG_AUTO_HOME_Z, PSTR("G28 Z"));
     #endif
 
+    #if HAS_FAN0
+      MENU_MULTIPLIER_ITEM_EDIT(int3, MSG_FAN_SPEED FAN_SPEED_1_SUFFIX, &fanSpeeds[0], 0, 255);
+      #if ENABLED(EXTRA_FAN_SPEED)
+        MENU_MULTIPLIER_ITEM_EDIT(int3, MSG_EXTRA_FAN_SPEED FAN_SPEED_1_SUFFIX, &new_fanSpeeds[0], 3, 255);
+      #endif
+    #endif
+
     //
     // TMC Z Calibration
     //
@@ -3505,6 +3512,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     // Nozzle:
     // Nozzle [1-5]:
     //
+    /*
     #if HOTENDS == 1
       MENU_MULTIPLIER_ITEM_EDIT_CALLBACK(int3, MSG_NOZZLE, &thermalManager.target_temperature[0], 0, HEATER_0_MAXTEMP - 15, watch_temp_callback_E0);
     #else // HOTENDS > 1
@@ -3520,7 +3528,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
         #endif // HOTENDS > 3
       #endif // HOTENDS > 2
     #endif // HOTENDS > 1
-
+    */
     //
     // Bed:
     //
@@ -3531,6 +3539,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     //
     // Fan Speed:
     //
+    /*
     #if FAN_COUNT > 0
       #if HAS_FAN0
         MENU_MULTIPLIER_ITEM_EDIT(int3, MSG_FAN_SPEED FAN_SPEED_1_SUFFIX, &fanSpeeds[0], 0, 255);
@@ -3551,7 +3560,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
         #endif
       #endif
     #endif // FAN_COUNT > 0
-
+    */
     //
     // Autotemp, Min, Max, Fact
     //
