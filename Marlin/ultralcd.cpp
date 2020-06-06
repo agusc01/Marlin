@@ -1446,6 +1446,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     // Nozzle:
     // Nozzle [1-4]:
     //
+    /*
     #if HOTENDS == 1
       MENU_MULTIPLIER_ITEM_EDIT_CALLBACK(int3, MSG_NOZZLE, &thermalManager.target_temperature[0], 0, HEATER_0_MAXTEMP - 15, watch_temp_callback_E0);
     #else // HOTENDS > 1
@@ -1461,13 +1462,15 @@ void lcd_quick_feedback(const bool clear_buttons) {
         #endif // HOTENDS > 3
       #endif // HOTENDS > 2
     #endif // HOTENDS > 1
-
+    
     //
     // Bed:
     //
     #if HAS_HEATED_BED
       MENU_MULTIPLIER_ITEM_EDIT_CALLBACK(int3, MSG_BED, &thermalManager.target_temperature_bed, 0, BED_MAXTEMP - 15, watch_temp_callback_bed);
     #endif
+
+    */
 
     //
     // Fan Speed:
@@ -1497,6 +1500,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     // Flow:
     // Flow [1-5]:
     //
+    /*
     #if EXTRUDERS == 1
       MENU_ITEM_EDIT_CALLBACK(int3, MSG_FLOW, &planner.flow_percentage[0], 10, 999, _lcd_refresh_e_factor_0);
     #else // EXTRUDERS > 1
@@ -1513,6 +1517,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
         #endif // EXTRUDERS > 3
       #endif // EXTRUDERS > 2
     #endif // EXTRUDERS > 1
+    */
 
     //
     // Babystep X:
