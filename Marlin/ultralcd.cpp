@@ -175,6 +175,7 @@ uint16_t max_display_update_time = 0;
   void lcd_tune_menu();
   void lcd_prepare_menu();
   void lcd_move_menu();
+  void lcd_home_menu();
   void lcd_control_menu();
   void lcd_control_temperature_menu();
   void lcd_control_motion_menu();
@@ -2704,12 +2705,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     //
     // Auto Home
     //
-    MENU_ITEM(gcode, MSG_AUTO_HOME, PSTR("G28"));
-    #if ENABLED(INDIVIDUAL_AXIS_HOMING_MENU)
-      MENU_ITEM(gcode, MSG_AUTO_HOME_X, PSTR("G28 X"));
-      MENU_ITEM(gcode, MSG_AUTO_HOME_Y, PSTR("G28 Y"));
-      MENU_ITEM(gcode, MSG_AUTO_HOME_Z, PSTR("G28 Z"));
-    #endif
+    MENU_ITEM(submenu, MSG_AUTO_HOME, lcd_home_menu);
 
     #if HAS_FAN0
       MENU_MULTIPLIER_ITEM_EDIT(int3, MSG_FAN_SPEED FAN_SPEED_1_SUFFIX, &fanSpeeds[0], 0, 255);
@@ -3338,6 +3334,30 @@ void lcd_quick_feedback(const bool clear_buttons) {
 
     END_MENU();
   }
+
+
+   /**
+   *
+   * "Home" submenu
+   *
+   */
+
+  void lcd_home_menu() {
+    START_MENU();
+    
+    MENU_BACK(MSG_PREPARE);
+
+    MENU_ITEM(gcode, "Origen XYZ", PSTR("G28"));
+    #if ENABLED(INDIVIDUAL_AXIS_HOMING_MENU)
+      MENU_ITEM(gcode, MSG_AUTO_HOME_X, PSTR("G28 X"));
+      MENU_ITEM(gcode, MSG_AUTO_HOME_Y, PSTR("G28 Y"));
+      MENU_ITEM(gcode, MSG_AUTO_HOME_Z, PSTR("G28 Z"));
+    #endif
+
+    END_MENU();
+  }
+
+
 
   /**
    *
