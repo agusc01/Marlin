@@ -160,14 +160,14 @@
 #define MSG_WATCH                           _UxGT("Informacion")
 #define MSG_PREPARE                         _UxGT("Preparar")
 #define MSG_TUNE                            _UxGT("Ajustar")
-#define MSG_PAUSE_PRINT                     _UxGT("Pausar impresion")
-#define MSG_RESUME_PRINT                    _UxGT("Reanudar impresion")
-#define MSG_STOP_PRINT                      _UxGT("Detener impresion")
+#define MSG_PAUSE_PRINT                     _UxGT("Pausar maquina")
+#define MSG_RESUME_PRINT                    _UxGT("Reanudar maquina")
+#define MSG_STOP_PRINT                      _UxGT("Detener maquina")
 #define MSG_CARD_MENU                       _UxGT("Menu de SD")
 #define MSG_NO_CARD                         _UxGT("No hay tarjeta SD")
 #define MSG_DWELL                           _UxGT("Reposo...")
 #define MSG_USERWAIT                        _UxGT("Esperando ordenes")
-#define MSG_PRINT_ABORTED                   _UxGT("Impresion cancelada")
+#define MSG_PRINT_ABORTED                   _UxGT("Maquina cancelada")
 #define MSG_NO_MOVE                         _UxGT("Sin movimiento")
 #define MSG_KILLED                          _UxGT("Parada de emergencia")
 #define MSG_STOPPED                         _UxGT("Detenida")
@@ -200,7 +200,7 @@
 #define MSG_ERR_MAXTEMP_BED                 _UxGT("Error: Temp Max Plat")
 #define MSG_ERR_MINTEMP_BED                 _UxGT("Error: Temp Min Plat")
 #define MSG_ERR_Z_HOMING                    MSG_HOME _UxGT(" ") MSG_X MSG_Y _UxGT(" ") MSG_FIRST
-#define MSG_HALTED                          _UxGT("IMPRESORA PARADA")
+#define MSG_HALTED                          _UxGT("MAQUINA PARADA")
 #define MSG_PLEASE_RESET                    _UxGT("Por favor, reinicie")
 #define MSG_SHORT_DAY                       _UxGT("d") // One character only
 #define MSG_SHORT_HOUR                      _UxGT("h") // One character only
@@ -214,8 +214,8 @@
 #define MSG_DELTA_CALIBRATE_CENTER          _UxGT("Calibrar Centro")
 #define MSG_DELTA_AUTO_CALIBRATE            _UxGT("Auto Calibracion")
 #define MSG_DELTA_HEIGHT_CALIBRATE          _UxGT("Est. Altura Delta")
-#define MSG_INFO_MENU                       _UxGT("Inf. Impresora")
-#define MSG_INFO_PRINTER_MENU               _UxGT("Inf. Impresora")
+#define MSG_INFO_MENU                       _UxGT("Inf. Maquina")
+#define MSG_INFO_PRINTER_MENU               _UxGT("Inf. Maquina")
 #define MSG_INFO_STATS_MENU                 _UxGT("Estadisticas Imp.")
 #define MSG_INFO_BOARD_MENU                 _UxGT("Inf. Controlador")
 #define MSG_INFO_THERMISTOR_MENU            _UxGT("Termistores")
@@ -225,17 +225,17 @@
 #define MSG_CASE_LIGHT                      _UxGT("Luz cabina")
 
 #if LCD_WIDTH > 19
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Conteo de impresion")
+  #define MSG_INFO_PRINT_COUNT              _UxGT("Conteo de Piezas")
   #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Completadas")
   #define MSG_INFO_PRINT_TIME               _UxGT("Tiempo total de imp.")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("Impresion mas larga")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Total de Extrusion")
+  #define MSG_INFO_PRINT_LONGEST            _UxGT("Trabajo mas largo")
+  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Total de corte")
 #else
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Impresiones")
+  #define MSG_INFO_PRINT_COUNT              _UxGT("Piezas")
   #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Completadas")
   #define MSG_INFO_PRINT_TIME               _UxGT("Total")
   #define MSG_INFO_PRINT_LONGEST            _UxGT("Mas larga")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Extrusion")
+  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Corte")
 #endif
 
 #define MSG_INFO_MIN_TEMP                   _UxGT("Temperatura minima")
