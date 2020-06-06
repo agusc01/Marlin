@@ -3388,6 +3388,25 @@ void lcd_quick_feedback(const bool clear_buttons) {
       END_MENU();
     }
 
+    static void lcd_eeprom_menu() {
+      START_MENU();
+      
+      MENU_BACK(MSG_CONTROL);
+
+      #if ENABLED(EEPROM_SETTINGS)
+        MENU_ITEM(function, MSG_STORE_EEPROM, lcd_store_settings);
+        MENU_ITEM(function, MSG_LOAD_EEPROM, lcd_load_settings);
+      #endif
+
+      MENU_ITEM(function, MSG_RESTORE_FAILSAFE, lcd_factory_settings);
+      
+      #if ENABLED(EEPROM_SETTINGS) && DISABLED(SLIM_LCD_MENUS)
+        MENU_ITEM(submenu, MSG_INIT_EEPROM, lcd_init_eeprom_confirm);
+      #endif
+
+      END_MENU();
+    }
+
   #endif
 
   void lcd_control_menu() {
@@ -3421,16 +3440,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
       MENU_ITEM(submenu, MSG_BLTOUCH, bltouch_menu);
     #endif
 
-    #if ENABLED(EEPROM_SETTINGS)
-      MENU_ITEM(function, MSG_STORE_EEPROM, lcd_store_settings);
-      MENU_ITEM(function, MSG_LOAD_EEPROM, lcd_load_settings);
-    #endif
-
-    MENU_ITEM(function, MSG_RESTORE_FAILSAFE, lcd_factory_settings);
-
-    #if ENABLED(EEPROM_SETTINGS) && DISABLED(SLIM_LCD_MENUS)
-      MENU_ITEM(submenu, MSG_INIT_EEPROM, lcd_init_eeprom_confirm);
-    #endif
+    MENU_ITEM(submenu, "EEPROM", lcd_eeprom_menu);
 
     END_MENU();
   }
