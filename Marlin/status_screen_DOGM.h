@@ -269,12 +269,16 @@ static void lcd_implementation_status_screen() {
         // Fan
         const int16_t per = ((fanSpeeds[0] + 1) * 100) / 256;
         //if (per) {
-          u8g.setPrintPos(STATUS_SCREEN_FAN_TEXT_X, STATUS_SCREEN_FAN_TEXT_Y);
+          u8g.setPrintPos(STATUS_SCREEN_FAN_TEXT_X-10, STATUS_SCREEN_FAN_TEXT_Y);
           lcd_print(itostr3(per));
           u8g.print('%');
         //}
       }
     #endif
+
+    //VIVA ARGENTINA !!
+    u8g.setPrintPos(1,28);
+    u8g.print("Ind. Argentina");
   }
 
   #if ENABLED(SDSUPPORT)

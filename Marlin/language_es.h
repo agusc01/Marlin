@@ -89,7 +89,7 @@
 #define MSG_BED_Z                           _UxGT("Plataforma Z")
 #define MSG_NOZZLE                          _UxGT("Boquilla")
 #define MSG_BED                             _UxGT("Plataforma")
-#define MSG_FAN_SPEED                       _UxGT("Ventilador")
+#define MSG_FAN_SPEED                       _UxGT("Spindle")
 #define MSG_FLOW                            _UxGT("Flujo")
 #define MSG_CONTROL                         _UxGT("Control")
 #define MSG_MIN                             _UxGT(" ") LCD_STR_THERMOMETER _UxGT(" Min")
