@@ -1747,6 +1747,7 @@ void Temperature::set_current_temp_raw() {
   uint32_t raw_filwidth_value; // = 0
 #endif
 
+
 void Temperature::readings_ready() {
   // Update the raw values if they've been read. Else we could be updating them during reading.
   if (!temp_meas_ready) set_current_temp_raw();
@@ -1788,6 +1789,7 @@ void Temperature::readings_ready() {
     #endif // HOTENDS > 1
   };
 
+  /*
   for (uint8_t e = 0; e < COUNT(temp_dir); e++) {
     const int16_t tdir = temp_dir[e], rawtemp = current_temperature_raw[e] * tdir;
     const bool heater_on = (target_temperature[e] > 0)
@@ -1806,7 +1808,9 @@ void Temperature::readings_ready() {
       else
         consecutive_low_temperature_error[e] = 0;
     #endif
+
   }
+  */
 
   #if HAS_HEATED_BED
     #if HEATER_BED_RAW_LO_TEMP > HEATER_BED_RAW_HI_TEMP
@@ -1823,6 +1827,7 @@ void Temperature::readings_ready() {
     if (bed_minttemp_raw GEBED current_temperature_bed_raw && bed_on) min_temp_error(-1);
   #endif
 }
+
 
 /**
  * Timer 0 is shared with millis so don't change the prescaler.
