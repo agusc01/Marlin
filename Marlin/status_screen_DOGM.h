@@ -257,7 +257,7 @@ static void lcd_implementation_status_screen() {
 
   if (PAGE_UNDER(28)) {
     // Extruders
-    HOTEND_LOOP() _draw_heater_status(STATUS_SCREEN_HOTEND_TEXT_X(e), e, blink);
+    //HOTEND_LOOP() _draw_heater_status(STATUS_SCREEN_HOTEND_TEXT_X(e), e, blink);
 
     // Heated bed
     #if HOTENDS < 4 && HAS_HEATED_BED
@@ -268,11 +268,11 @@ static void lcd_implementation_status_screen() {
       if (PAGE_CONTAINS(STATUS_SCREEN_FAN_TEXT_Y - 7, STATUS_SCREEN_FAN_TEXT_Y)) {
         // Fan
         const int16_t per = ((fanSpeeds[0] + 1) * 100) / 256;
-        if (per) {
+        //if (per) {
           u8g.setPrintPos(STATUS_SCREEN_FAN_TEXT_X, STATUS_SCREEN_FAN_TEXT_Y);
           lcd_print(itostr3(per));
           u8g.print('%');
-        }
+        //}
       }
     #endif
   }
