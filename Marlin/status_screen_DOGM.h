@@ -281,6 +281,7 @@ static void lcd_implementation_status_screen() {
     u8g.print("Ind. Argentina");
   }
 
+  /*
   #if ENABLED(SDSUPPORT)
     //
     // SD Card Symbol
@@ -296,12 +297,13 @@ static void lcd_implementation_status_screen() {
       u8g.drawPixel(50, 43 - (TALL_FONT_CORRECTION));         // 43 (or 42)
     }
   #endif // SDSUPPORT
+  */
 
   #if ENABLED(SDSUPPORT) || ENABLED(LCD_SET_PROGRESS_MANUALLY)
     //
     // Progress bar frame
     //
-    #define PROGRESS_BAR_X 54
+    #define PROGRESS_BAR_X 0
     #define PROGRESS_BAR_WIDTH (LCD_PIXEL_WIDTH - PROGRESS_BAR_X)
 
     if (PAGE_CONTAINS(49, 52 - (TALL_FONT_CORRECTION)))       // 49-52 (or 49-51)
@@ -314,7 +316,7 @@ static void lcd_implementation_status_screen() {
       const uint8_t progress_bar_percent = card.percentDone();
     #endif
 
-    if (progress_bar_percent > 1) {
+    if (progress_bar_percent > 0) {
 
       //
       // Progress bar solid part
@@ -330,15 +332,20 @@ static void lcd_implementation_status_screen() {
       // SD Percent Complete
       //
 
+    }
+
       #if ENABLED(DOGM_SD_PERCENT)
         if (PAGE_CONTAINS(41, 48)) {
           // Percent complete
-          u8g.setPrintPos(55, 48);
-          u8g.print(itostr3(progress_bar_percent));
+          u8g.setPrintPos(48, 48);
+          u8g.print('P');
+          if(progress_bar_percent > 0)
+            u8g.print(itostr3(progress_bar_percent));
+          else
+            u8g.print("---");
           u8g.print('%');
         }
       #endif
-    }
 
     //
     // Elapsed Time
@@ -440,14 +447,17 @@ static void lcd_implementation_status_screen() {
   //
 
   if (PAGE_CONTAINS(51 - INFO_FONT_HEIGHT, 49)) {
-    lcd_setFont(FONT_MENU);
+    
+    /*lcd_setFont(FONT_MENU);
     u8g.setPrintPos(3, 50);
     lcd_print(LCD_STR_FEEDRATE[0]);
+    */
 
     lcd_setFont(FONT_STATUSMENU);
-    u8g.setPrintPos(12, 50);
+    u8g.setPrintPos(0, 48);
+    u8g.print('V');
     lcd_print(itostr3(feedrate_percentage));
-    u8g.print('#');
+    u8g.print('%');
 
     //
     // Filament sensor display if SD is disabled
