@@ -447,7 +447,7 @@ static void lcd_implementation_status_screen() {
     lcd_setFont(FONT_STATUSMENU);
     u8g.setPrintPos(12, 50);
     lcd_print(itostr3(feedrate_percentage));
-    u8g.print('%');
+    u8g.print('#');
 
     //
     // Filament sensor display if SD is disabled
